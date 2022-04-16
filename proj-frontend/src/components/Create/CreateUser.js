@@ -116,7 +116,10 @@ export default class CreateUser extends Component {
                     console.log(result.data);
                     toast.success("User registered successfully!!!");
                     this.props.history.push("/login");
-                });
+                }).catch((err) => {
+                    console.log("error occured", err);
+                    toast.error("error occured in registering user!!!",err);
+                })
             } else {
 
                 UserService.updateUser(user, this.state.id)
